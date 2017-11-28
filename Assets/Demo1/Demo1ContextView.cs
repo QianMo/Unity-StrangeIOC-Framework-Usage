@@ -10,6 +10,8 @@ public class Demo1ContextView : ContextView
     {
         this.context = new Demo1Context(this);
 
+        Debug.Log("StrangeIOC Init Finish~!!");
+
         //启动StrangeIOC框架
         //context.Start();
     }
