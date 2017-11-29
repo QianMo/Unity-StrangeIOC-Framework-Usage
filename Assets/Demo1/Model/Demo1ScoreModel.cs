@@ -4,5 +4,17 @@ using UnityEngine;
 
 public class Demo1ScoreModel
 {
-    public int Score { get; set; }
+    private int score = -1;
+    public int Score
+    {
+        get { return score; }
+        set { score = value; }
+    }
+
+
+    //     public int Score
+    //     {
+    //         get;
+    //         set;
+    //     }
 }

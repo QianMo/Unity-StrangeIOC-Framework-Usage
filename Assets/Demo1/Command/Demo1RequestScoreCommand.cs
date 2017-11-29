@@ -15,6 +15,9 @@ public class Demo1RequestScoreCommand : Command
     [Inject]
     public Demo1IScoreService scoreService { get; set; }
 
+    [Inject]
+    public Demo1ScoreModel scoreModel{ get; set; }
+
     //全局dispatcher
     [Inject(ContextKeys.CONTEXT_DISPATCHER)]
     public IEventDispatcher dispatcher { get; set; }

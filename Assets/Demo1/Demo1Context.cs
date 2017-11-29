@@ -15,13 +15,14 @@ public class Demo1Context : MVCSContext
     protected override void mapBindings()
     {
         //--------------------------model-------------------------------
+        injectionBinder.Bind<Demo1ScoreModel>().To<Demo1ScoreModel>().ToSingleton();
 
         //--------------------------service------------------------------
         injectionBinder.Bind<Demo1IScoreService>().To<Demo1ScoreService>().ToSingleton();
 
         //--------------------------command--------------------------
         commandBinder.Bind(Demo1Event.RequestScore_Command).To<Demo1RequestScoreCommand>();
-
+        commandBinder.Bind(Demo1Event.UpdateScore_Command).To<Demo1UpdateScoreCommand>();
 
 
         //--------------------------mediator---------------------------
