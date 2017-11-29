@@ -67,7 +67,7 @@ public class AudioWindowEditor : EditorWindow
             {
 
                 audioDict.Remove(key);
-                //LoadAudioList();
+                SaveAudioList();
                 return;
             }
             GUILayout.EndHorizontal();
@@ -96,7 +96,7 @@ public class AudioWindowEditor : EditorWindow
                 {
                     Debug.LogWarning("添加音效" + audioName + "成功！");
                     audioDict.Add(audioName, audioPath);
-                    //SaveAudioList();
+                    SaveAudioList();
                 }
 
             }
@@ -108,11 +108,11 @@ public class AudioWindowEditor : EditorWindow
     //------------------------------------------------------------------------
     // 每秒调用10次
     //------------------------------------------------------------------------
-    void OnInspectorUpdate()
-    {
-        Debug.LogWarning("OnInspectorUpdate:");
-        SaveAudioList();
-    }
+//     void OnInspectorUpdate()
+//     {
+//         Debug.LogWarning("OnInspectorUpdate:");
+//         SaveAudioList();
+//     }
 
     //------------------------------------------------------------------------
     // 保存List到文件
@@ -157,6 +157,10 @@ public class AudioWindowEditor : EditorWindow
 
             string[] keyvalue = line.Split(',');
             if (keyvalue == null || keyvalue.Length < 2)
+            {
+                continue;
+            }
+            if (audioDict.ContainsKey(keyvalue[0]))
             {
                 continue;
             }
