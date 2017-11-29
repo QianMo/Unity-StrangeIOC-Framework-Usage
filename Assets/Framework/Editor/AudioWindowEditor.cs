@@ -41,8 +41,8 @@ public class AudioWindowEditor : EditorWindow
 
     void Awake()
     {
-        // savePath = Application.dataPath + "\\Framework\\Resources\\audioList.txt";
-        //LoadAudioList();
+         savePath = Application.dataPath + "\\Framework\\Resources\\audioList.txt";
+        LoadAudioList();
     }
 
     void OnGUI()
@@ -108,10 +108,11 @@ public class AudioWindowEditor : EditorWindow
     //------------------------------------------------------------------------
     // 每秒调用10次
     //------------------------------------------------------------------------
-    //     void OnInspectorUpdate()
-    //     {
-    //         //SaveAudioList();
-    //     }
+    void OnInspectorUpdate()
+    {
+        Debug.LogWarning("OnInspectorUpdate:");
+        SaveAudioList();
+    }
 
     //------------------------------------------------------------------------
     // 保存List到文件
