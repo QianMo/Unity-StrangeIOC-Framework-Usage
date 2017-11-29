@@ -14,11 +14,22 @@ public class Demo1Context : MVCSContext
 
     protected override void mapBindings()
     {
-        //base.mapBindings();
+        //--------------------------model-------------------------------
+
+        //--------------------------service------------------------------
+        injectionBinder.Bind<Demo1IScoreService>().To<Demo1ScoreService>().ToSingleton();
+
+        //--------------------------command--------------------------
+        commandBinder.Bind(Demo1Event.RequestScore_Command).To<Demo1RequestScoreCommand>();
+
+
+
+        //--------------------------mediator---------------------------
+        //进行view和mediator的绑定
+        mediationBinder.Bind<Demo1CubeView>().To<Demo1CubeMediator>();
 
         //绑定开始事件，创建一个startcommand
         commandBinder.Bind(ContextEvent.START).To<Demo1StartCommand>();
-
         //commandBinder.Bind(ContextEvent.NEXT).To<Demo1NextCommand>();
     }
 }
