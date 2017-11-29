@@ -38,7 +38,7 @@ namespace strange.examples.multiplecontexts.social
 			{
 				throw new Exception("Can't load a module with a null or empty filepath.");
 			}
-			Application.LoadLevelAdditive(filepath);
+			//Application.LoadLevelAdditive(filepath);
 		}
 	}
 }
