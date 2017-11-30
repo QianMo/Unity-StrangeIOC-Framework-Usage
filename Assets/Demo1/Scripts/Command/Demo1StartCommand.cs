@@ -16,5 +16,8 @@ public class Demo1StartCommand : Command
         Debug.Log("Enter Demo1StartCommand Execute！");
 
         AudioManagerInstance.Init();
+
+        PoolManager.Instance.Init();
+
     }
 }

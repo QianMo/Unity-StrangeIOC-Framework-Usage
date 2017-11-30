@@ -39,6 +39,12 @@ public class Demo1CubeView : View
     {
         //Debug.Log("Updata~!");
         transform.Translate(new Vector3(Random.Range(-2, 3), Random.Range(-2, 3), Random.Range(-2, 3)) *0.02f);
+
+        if (Input.GetMouseButton(0))
+        {
+            PoolManager.Instance.GePoolObjByName("Bullet");
+        }
+
     }
 
 

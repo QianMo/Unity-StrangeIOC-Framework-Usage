@@ -26,6 +26,8 @@ public class AudioManager
     //音频片段数据存储Map<name,AudioClip>
     private Dictionary<string, AudioClip> audioClipMap = new Dictionary<string, AudioClip>();
 
+    //静音
+    public bool isMute = false;
 
 //     public AudioManager()
 //     {
@@ -70,6 +72,10 @@ public class AudioManager
 
     public void Play(string name)
     {
+        if (isMute)
+        {
+            return;
+        }
         AudioClip ac;
         audioClipMap.TryGetValue(name, out ac);
         if (ac!=null)
@@ -80,6 +86,10 @@ public class AudioManager
 
     public void Play(string name, Vector3 position)
     {
+        if (isMute)
+        {
+            return;
+        }
         AudioClip ac;
         audioClipMap.TryGetValue(name, out ac);
         if (ac!=null)
