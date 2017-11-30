@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Demo1StartCommand : Command
 {
+    [Inject]
+    public AudioManager AudioManagerInstance { get; set; }
 
     //-------------------------------------------------------------------
     /// 当这个命令被执行的时候，会默认调用Excute方法
@@ -12,17 +14,7 @@ public class Demo1StartCommand : Command
     public override void Execute()
     {
         Debug.Log("Enter Demo1StartCommand Execute！");
-    }
 
-    // Use this for initialization
-    void Start ()
-    {
-        Debug.Log("Enter Demo1StartCommand Start！");
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
+        AudioManagerInstance.Init();
+    }
 }

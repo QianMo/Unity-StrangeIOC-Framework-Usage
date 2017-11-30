@@ -17,14 +17,18 @@ public class Demo1CubeView : View
 
     private Text scoreText=null;
 
-    //全局dispatcher
     [Inject]
     public IEventDispatcher dispatcher { get; set; }
+
+    [Inject]
+    public AudioManager AudioManagerInstance { get; set; }
 
     public void Init()
     {
         Debug.Log("Init~!");
         scoreText = GetComponentInChildren<Text>();
+        Debug.Log(AudioManagerInstance);
+
     }
     protected override void Awake()
     {
@@ -46,13 +50,17 @@ public class Demo1CubeView : View
         dispatcher.Dispatch(Demo1Event.ClickDown_Mediator);
 
 
-        //测试
+        //测试-dispatch多个参数
         List<object> listData = new List<object>();
         listData.Add("heelo");
         listData.Add(true);
         listData.Add(12356);
         listData.Add(0.6666f);
         dispatcher.Dispatch(Demo1Event.ClickDown_Mediator_Test, listData);
+
+
+        //
+        AudioManagerInstance.Play("Ding");
 
     }
 

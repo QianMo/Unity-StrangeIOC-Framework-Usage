@@ -119,18 +119,16 @@ public class AudioWindowEditor : EditorWindow
     //------------------------------------------------------------------------
     private void SaveAudioList()
     {
-        StringBuilder strb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
         foreach (string key in audioDict.Keys)
         {
             string value;
             audioDict.TryGetValue(key, out value);
-            strb.Append(key + "," + value + "\n");
+            sb.Append(key + "," + value + "\n");
         }
 
-
-
-        File.WriteAllText(savePath, strb.ToString());
+        File.WriteAllText(savePath, sb.ToString());
 
         Debug.LogWarning("已经保存到路径:" + savePath);
     }
@@ -141,7 +139,6 @@ public class AudioWindowEditor : EditorWindow
     //------------------------------------------------------------------------
     private void LoadAudioList()
     {
-
 
         if (File.Exists(savePath) == false)
         {
