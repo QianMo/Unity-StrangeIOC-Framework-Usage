@@ -19,5 +19,7 @@ public class Demo1StartCommand : Command
 
         PoolManager.Instance.Init();
 
+        LocalizationManager.Instance.Init();
+
     }
 }

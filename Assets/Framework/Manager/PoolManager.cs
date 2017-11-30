@@ -47,6 +47,10 @@ public class PoolManager
         poolMap.Clear();
         foreach (GameObjectPool pool in poolList.poolList)
         {
+            if (poolMap.ContainsKey(pool.name))
+            {
+                continue;
+            }
             poolMap.Add(pool.name, pool);
         }
 
