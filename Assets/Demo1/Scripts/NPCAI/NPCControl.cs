@@ -10,6 +10,7 @@ using System.Collections;
 public class NPCControl : MonoBehaviour
 {
     private FSMSystem fsm;
+    private GameObject player;
 
     public Transform[] waypoints;
 
@@ -18,6 +19,7 @@ public class NPCControl : MonoBehaviour
 	//-----------------------------------------------------------------------------------------------------
 	void Start ( )
 	{
+        player = GameObject.FindGameObjectWithTag("Player");
         InitFSM();
 
     }
@@ -29,10 +31,11 @@ public class NPCControl : MonoBehaviour
     {
         fsm = new FSMSystem();
 
-        PatrolState patrolState = new PatrolState(waypoints,this.gameObject);
+
+        PatrolState patrolState = new PatrolState(waypoints,this.gameObject, player);
         patrolState.AddTransition(Transition.SawPlayer,StateID.Chase);
 
-        ChaseState chaseState = new ChaseState();
+        ChaseState chaseState = new ChaseState(this.gameObject,player);
         chaseState.AddTransition(Transition.LostPlayer, StateID.Patrol);
 
 

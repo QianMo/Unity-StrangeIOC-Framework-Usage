@@ -36,6 +36,8 @@ public abstract class FSMState
 
     protected Dictionary<Transition, StateID> map = new Dictionary<Transition, StateID>();
 
+    public FSMSystem fsm;
+
     public void AddTransition(Transition trans, StateID id)
     {
         if (trans==Transition.NullTransition || id ==StateID.NullStateID)

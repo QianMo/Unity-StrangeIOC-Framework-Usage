@@ -46,6 +46,8 @@ public class FSMSystem
             return;
         }
 
+        state.fsm = this;
+
         states.Add(state.ID, state);
     }
 
