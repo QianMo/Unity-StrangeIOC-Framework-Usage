@@ -21,5 +21,8 @@ public class Demo1StartCommand : Command
 
         LocalizationManager.Instance.Init();
 
+        TestProtobuf.SerializeTest();
+        TestProtobuf.DeSerializeTest();
+
     }
 }
