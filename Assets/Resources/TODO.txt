@@ -1,0 +1,15 @@
+- playership should be touched to activate.
+- after that if user touch somewhere on the screen playership will go that position and follow the finger.
+- if enemy and playership collide playership will lost his health
+- can be add a health bar for playership
+- for enemies and asteroid should be written a base mediator.
+- there could be different explosion effect for every different item
+
+
+- UI can work in different resolutions properly
+- Facebook login // Service
+- E-mail login // Service
+- save user data
+- game center connection
+- ar-ge for leaderboard
+- upgradable objects
